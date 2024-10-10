@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_pages/views/register_page.dart';
 
 import '../components/custom_button.dart';
 import '../components/custom_input.dart';
 import '../components/social_auth.dart';
+import '../services/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -23,7 +25,7 @@ class LoginPage extends StatelessWidget {
             CustomInput(labelText: 'Email',),
             CustomInput(labelText: 'Senha', obscure: true,),
             CustomButton(titleButton: 'Login',),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Ainda não tem uma conta?'),
@@ -32,7 +34,13 @@ class LoginPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => RegisterPage())
                   );
                 },
-                    child: Text('Cadastre-se')),
+                    child: Text('Cadastre-se')
+                ),
+                Text('Esqueceu a senha?'),
+                TextButton(onPressed: (){
+                  FireAuthService().recoverPassword();
+                }, child: Text('Clique aqui')
+                )
               ],
             ),
             Row(
