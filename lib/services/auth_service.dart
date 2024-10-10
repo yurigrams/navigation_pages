@@ -24,4 +24,9 @@ class FireAuthService {
       throw e;
     }
   }
+
+  checkUser() async{
+    var user = auth.currentUser!.displayName;
+    return user;
+  }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:navigation_pages/firebase_options.dart';
 import 'package:navigation_pages/views/detail_page.dart';
+import 'package:navigation_pages/views/feedbacck_page.dart';
 import 'package:navigation_pages/views/home_page.dart';
 import 'package:navigation_pages/views/login_page.dart';
 import 'package:navigation_pages/views/register_page.dart';
@@ -20,11 +21,12 @@ void main() async {
         fontFamily: GoogleFonts.adamina().fontFamily,
           useMaterial3: false
       ),
-      initialRoute: 'login',
+      initialRoute: 'feedback',
       routes: {
         '/':(context)=>HomePage(),
         'login':(context)=>LoginPage(),
         'register':(context)=>RegisterPage(),
+        'feedback':(context)=>FeedbacckPage(),
       },
       // home: LoginPage(),
     ),

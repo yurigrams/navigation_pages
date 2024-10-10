@@ -4,11 +4,13 @@ class CustomInput extends StatelessWidget {
 
   String labelText;
   bool obscure;
+  // TextEditingController controller;
 
 
   CustomInput({super.key,
     required this.labelText,
-    this.obscure = false
+    this.obscure = false,
+    // required this.controller
   });
 
   @override
