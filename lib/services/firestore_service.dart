@@ -8,12 +8,20 @@ class FirestoreService{
   var db = FirebaseFirestore.instance;
 
 
-  postFeedback() async{
+  postFeedback(message) async{
     db.collection('Feedbacks').add({
       "user":await FireAuthService().checkUser(),
-      "message":"Implemento Firebase",
+      "message":message,
       "Photo":"",
       "created_al":DateTime.now()
     });
+  }
+  getFeedback() async{
+    try {
+      var feedbacks = await db.collection('Feedbacks').orderBy('created_al', descending: true).get();
+      return feedbacks.docs;
+    } catch (e) {
+      throw e;
+    }
   }
 }
