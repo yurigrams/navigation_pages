@@ -10,7 +10,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 40,
-      width: double.infinity,
+      width: double.infinity,   
       child: ElevatedButton(
         onPressed: () async {
           try{
